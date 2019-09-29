@@ -1,14 +1,18 @@
 <template>
   <div>
-    <div class="row">
-      <div style="flex: 40%;">
+    <div class='row'>
+      <div style='flex: 40%;'>
         <logo />
       </div>
-      <div style="flex: 60%;">
+      <div style='flex: 60%;'>
         <h1>Electron Nuxt TypeScript</h1>
-        <p>Electron: {{ versions.electron }}</p>
-        <p>Chrome: {{ versions.chrome }}</p>
-        <p>Node: {{ versions.node }}</p>
+        <input
+          v-model='n'
+          type='number'
+        >
+        <button @click='advance'>
+          Go to slide {{ n }}
+        </button>
       </div>
     </div>
   </div>
@@ -18,12 +22,23 @@
 import { remote } from 'electron';
 import Logo from '../components/Logo.vue';
 
+const SlideShow = remote.require('slideshow');
+
 export default {
   components: { Logo },
   data() {
     return {
-      versions: remote.process.versions,
+      n: 2,
+      slideshow: new SlideShow('powerpoint'),
     };
+  },
+  mounted() {
+    this.slideshow.boot();
+  },
+  methods: {
+    async advance() {
+      await this.slideshow.goto(this.n);
+    },
   },
 };
 </script>

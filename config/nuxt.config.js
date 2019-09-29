@@ -16,4 +16,7 @@ module.exports = {
     },
   },
   css: ['~/assets/main.css'],
+  head: {
+    title: 'DMX PowerPoint Control',
+  },
 };

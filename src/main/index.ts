@@ -1,10 +1,11 @@
-import { app, BrowserWindow } from 'electron';
+import {
+  app, BrowserWindow, Tray, Menu,
+} from 'electron';
 import * as path from 'path';
 import * as express from 'express';
 
-let win: BrowserWindow;
-
 const port = 15953;
+const icon = path.join(__dirname, '../../icon.png');
 
 async function prodServer(): Promise<void> {
   return new Promise((resolve): void => {
@@ -22,16 +23,51 @@ async function prodServer(): Promise<void> {
   });
 }
 
+let tray: Tray;
+let win: BrowserWindow;
+
+const create = {
+  async window(): Promise<void> {
+    if (!process.argv.includes('--dev')) await prodServer();
+    win = new BrowserWindow({
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true,
+      },
+      icon,
+    });
+    win.loadURL(`http://localhost:${port}`);
+    win.webContents.openDevTools();
+    win.setMenu(null);
+
+    win.on('minimize', (event) => {
+      event.preventDefault();
+      win.hide();
+    });
+    win.on('close', (event) => {
+      event.preventDefault();
+      win.hide();
+    });
+    win.on('closed', () => { win = null; });
+  },
+  tray(): void {
+    tray = new Tray(icon);
+    tray.setToolTip('ArtNet PowerPoint control is enabled. Click to open settings.');
+    tray.on('click', (): void => {
+      if (win.isVisible()) win.hide();
+      else { win.show(); win.focus(); }
+    });
+    tray.setContextMenu(Menu.buildFromTemplate([{
+      label: 'Quit',
+      click(): void { app.exit(0); },
+    }]));
+  },
+};
+
 app.on('ready', async () => {
-  if (!process.argv.includes('--dev')) await prodServer();
-  win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
-  win.loadURL(`http://localhost:${port}`);
-  win.webContents.openDevTools();
-  win.on('closed', () => { win = null; });
+  create.tray();
+  await create.window();
 });
+
+app.on('window-all-closed', app.quit);

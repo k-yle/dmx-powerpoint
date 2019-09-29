@@ -1,6 +1,6 @@
 {
   "name": "dmx-powerpoint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "💡 🎚️ Control powerpoint from a lighting console (via ArtNet)",
   "author": "Kyle Hensel",
   "main": "dist/main",
@@ -9,7 +9,7 @@
     "nuxt:dev": "nuxt dev config",
     "tsc:build": "tsc --build config/tsconfig.json",
     "build": "rm -rf dist && nuxt generate config && npm run tsc:build && electron-builder --config config/electron-builder.yml",
-    "dev": "npm run tsc:build && concurrently -k -n main,renderer -c blue,green \"electron .\" \"npm run nuxt:dev\"",
+    "dev": "npm run tsc:build && concurrently -k -n main,renderer -c blue,green \"electron . --dev\" \"npm run nuxt:dev\"",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "test": "npm run lint && npm run build"
   },

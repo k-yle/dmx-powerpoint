@@ -32,3 +32,6 @@ rules:
   import/prefer-default-export: 'off'
   indent: 'off'
   node/no-unsupported-features/es-syntax: 'off'
+  vue/html-quotes:
+  - 2
+  - single
