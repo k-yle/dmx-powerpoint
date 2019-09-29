@@ -1,0 +1,44 @@
+{
+  "name": "dmx-powerpoint",
+  "version": "0.0.1",
+  "description": "💡 🎚️ Control powerpoint from a lighting console (via ArtNet)",
+  "author": "Kyle Hensel",
+  "main": "dist/main",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "nuxt:dev": "nuxt dev config",
+    "tsc:build": "tsc --build config/tsconfig.json",
+    "build": "rm -rf dist && nuxt generate config && npm run tsc:build && electron-builder --config config/electron-builder.yml",
+    "dev": "npm run tsc:build && concurrently -k -n main,renderer -c blue,green \"electron .\" \"npm run nuxt:dev\"",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
+    "test": "npm run lint && npm run build"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "slideshow": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/express": "^4.16.0",
+    "@types/express-useragent": "^1.0.0",
+    "@types/node": "^10.12.18",
+    "@types/wait-on": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.0",
+    "electron-builder": "^20.38.4",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "node-sass": "^4.11.0",
+    "nuxt": "^2.3.4",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2"
+  }
+}

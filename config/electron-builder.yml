@@ -1,0 +1,9 @@
+appId: kiwi.kyle.dmx.pptx
+files:
+  - from: dist
+    to: dist
+    filter:
+      - main/**/*
+      - renderer/**/*
+  - filter:
+      - package.json
