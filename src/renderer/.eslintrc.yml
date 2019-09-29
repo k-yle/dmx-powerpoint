@@ -23,7 +23,7 @@ rules:
   no-await-in-loop: 'off'
   no-restricted-syntax: 'off'
   guard-for-in: 'off'
-  
+
   prefer-destructuring: warn
   prefer-object-spread: warn
   no-warning-comments: warn

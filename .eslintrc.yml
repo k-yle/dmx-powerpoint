@@ -21,14 +21,14 @@ settings:
   node:
     allowModules:
     - electron
-    
+
 rules:
   max-len: warn
   no-console: 'off'
   no-await-in-loop: 'off'
   no-restricted-syntax: 'off'
   guard-for-in: 'off'
-  
+
   prefer-destructuring: warn
   prefer-object-spread: warn
   no-warning-comments: warn

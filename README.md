@@ -4,9 +4,11 @@
 
 💡 🎚️ Control powerpoint from a lighting console (via ArtNet)
 
+> ⚠ This is a work in progress; it does not work yet...
 
-## Development 
+## Development
 ```shell
+# install
 npm i
 
 # Dev mode
