@@ -53,7 +53,7 @@ const create = {
   },
   tray(): void {
     tray = new Tray(icon);
-    tray.setToolTip('ArtNet PowerPoint control is enabled. Click to open settings.');
+    tray.setToolTip('DMX PowerPoint control is enabled. Click to open settings.');
     tray.on('click', (): void => {
       if (win.isVisible()) win.hide();
       else { win.show(); win.focus(); }

@@ -35,9 +35,5 @@ rules:
 
   import/no-unresolved: 'off'
   import/prefer-default-export: 'off'
-  indent: 'off'
-  "@typescript-eslint/indent":
-  - error
-  - 2
   "@typescript-eslint/camelcase": 'off'
   node/no-unsupported-features/es-syntax: 'off'
