@@ -24,7 +24,7 @@
     "@types/express-useragent": "^1.0.0",
     "@types/node": "^12.7.8",
     "@types/wait-on": "^3.2.0",
-    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.1",
     "concurrently": "^5.0.0",
     "electron": "^6.0.10",
