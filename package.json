@@ -23,7 +23,7 @@
     "@types/express": "^4.16.0",
     "@types/express-useragent": "^1.0.0",
     "@types/node": "^12.11.5",
-    "@types/wait-on": "^3.2.0",
+    "@types/wait-on": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.4.0",
     "concurrently": "^5.0.0",
