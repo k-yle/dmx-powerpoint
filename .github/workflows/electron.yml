@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install & build
+      - name: install & build
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn build
         env:
           CI: true
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
