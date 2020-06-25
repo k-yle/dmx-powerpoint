@@ -1,4 +1,4 @@
-name: Electron Build
+name: Lint
 
 on: [push]
 
@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install & build
+      - name: npm install & lint
         run: |
           npm install
-          npm run build
+          npm run lint
         env:
           CI: true
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

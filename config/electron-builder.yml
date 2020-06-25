@@ -1,21 +1,24 @@
 appId: kiwi.kyle.dmx.pptx
+productName: DMX PowerPoint
+extends: null
+
 files:
-  - from: dist
-    to: dist
-    filter:
-      - main/**/*
-      - renderer/**/*
   - filter:
+      - dist/**/*
       - package.json
+
+# so that it loads icon.png
+directories:
+  buildResources: public
 
 win:
   target:
-  - default
+    - default
   publisherName: Kyle Hensel
   publish: null # FIXME: enable this once stable
 
 mac:
   target:
-  - default
+    - default
   category: public.app-category.utilities
   publish: null # FIXME: enable this once stable

@@ -1,45 +1,58 @@
 {
   "name": "dmx-powerpoint",
-  "version": "0.0.3",
+  "version": "2.0.0",
   "description": "💡 🎚️ Control powerpoint from a lighting console (via sACN)",
   "author": "Kyle Hensel",
-  "main": "dist/main",
   "license": "SEE LICENSE IN LICENSE",
+  "main": "dist/electron",
   "scripts": {
-    "nuxt:dev": "nuxt dev config",
-    "tsc:build": "tsc --build config",
-    "build": "rm -rf dist && nuxt generate config && npm run tsc:build && electron-builder --config config/electron-builder.yml",
-    "start": "npm run tsc:build && concurrently -k -n main,renderer -c blue,green \"electron . --dev\" \"npm run nuxt:dev\"",
-    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
-    "test": "npm run lint && npm run build"
+    "start:cra": "react-scripts start",
+    "start:electron": "electron . --dev",
+    "start": "yarn build:tsc && concurrently -k -c blue,green \"npm:start:electron\" \"npm:start:cra\"",
+    "build:cra": "react-scripts build && mv -f build dist/client",
+    "build:tsc": "tsc --build config",
+    "build:electron": "electron-builder --config config/electron-builder.yml",
+    "build": "yarn clean && yarn build:tsc && yarn build:cra && yarn build:electron",
+    "lint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore .",
+    "clean": "rm -rf dist build"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "sacn": "^0.7.3",
-    "slideshow": "^1.0.3"
+    "@fluentui/react": "^7.121.2",
+    "menubar": "^9.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "sacn": "^3.2.0",
+    "slideshow": "^1.0.4"
   },
   "devDependencies": {
-    "@types/electron-devtools-installer": "^2.2.0",
-    "@types/express": "^4.16.0",
-    "@types/express-useragent": "^1.0.0",
-    "@types/node": "^12.11.5",
-    "@types/wait-on": "^3.2.0",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.4.0",
-    "concurrently": "^5.0.0",
-    "electron": "^7.0.0",
-    "electron-builder": "^22.1.0",
+    "@types/node": "12.12.6",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
     "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-vue": "^6.0.0",
-    "node-sass": "^4.11.0",
-    "nuxt": "^2.10.1",
-    "pug": "^2.0.3",
-    "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^8.0.0",
-    "ts-loader": "^6.1.2",
-    "typescript": "^3.2.2"
+    "eslint-config-kyle": "^1.0.41",
+    "typescript": "^3.9.5"
+  },
+  "engines": {
+    "node": "~12",
+    "npm": "please-use-yarn"
+  },
+  "eslintConfig": {
+    "extends": "kyle"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

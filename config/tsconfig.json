@@ -1,11 +1,12 @@
+// this is the tsconfig used by the electron process
 {
   "compilerOptions": {
-    "outDir": "../dist/main",
+    "outDir": "../dist/electron",
     "module": "commonjs",
     "target": "es2015",
     "moduleResolution": "node",
     "downlevelIteration": true
   },
-  "include": ["../src/main/**/*.ts"],
+  "include": ["../electron/**/*.ts"],
   "exclude": ["node_modules"]
 }
