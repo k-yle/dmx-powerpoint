@@ -2,6 +2,8 @@ appId: kiwi.kyle.dmx.pptx
 productName: DMX PowerPoint
 extends: null
 
+asarUnpack: node_modules/slideshow/connector-*
+
 files:
   - filter:
       - dist/**/*

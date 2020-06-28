@@ -1,4 +1,6 @@
-import { loadTheme } from '@fluentui/react';
+import { loadTheme, initializeIcons } from '@fluentui/react';
+
+initializeIcons();
 
 // https://fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/master/theming-designer/
 
@@ -13,18 +15,18 @@ loadTheme({
     themeDarkAlt: '#106ebe',
     themeDark: '#005a9e',
     themeDarker: '#004578',
-    neutralLighterAlt: '#f8f8f8',
-    neutralLighter: '#f4f4f4',
-    neutralLight: '#eaeaea',
-    neutralQuaternaryAlt: '#dadada',
-    neutralQuaternary: '#d0d0d0',
-    neutralTertiaryAlt: '#c8c8c8',
-    neutralTertiary: '#c2c2c2',
-    neutralSecondary: '#858585',
-    neutralPrimaryAlt: '#4b4b4b',
-    neutralPrimary: '#333333',
-    neutralDark: '#272727',
-    black: '#1d1d1d',
-    white: '#ffffff',
+    neutralLighterAlt: '#323130',
+    neutralLighter: '#31302f',
+    neutralLight: '#71afe5',
+    neutralQuaternaryAlt: '#2c2b2a',
+    neutralQuaternary: '#2a2928',
+    neutralTertiaryAlt: '#282726',
+    neutralTertiary: '#c8c8c8',
+    neutralSecondary: '#d0d0d0',
+    neutralPrimaryAlt: '#dadada',
+    neutralPrimary: '#ffffff',
+    neutralDark: '#f4f4f4',
+    black: '#f8f8f8',
+    white: '#323130',
   },
 });

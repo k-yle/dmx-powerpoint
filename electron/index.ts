@@ -5,7 +5,9 @@ import { join } from 'path';
 
 const DEV = process.argv.includes('--dev');
 
-const HOST = DEV ? { index: 'http://localhost:15953' } : { dir: 'client' };
+const HOST = DEV
+  ? { index: 'http://localhost:15953' }
+  : { dir: join(__dirname, '../client') };
 
 const mb = menubar({
   ...HOST,
@@ -18,7 +20,7 @@ const mb = menubar({
     },
   },
   tooltip: 'DMX PowerPoint control is enabled. Click to open settings.',
-  icon: join(__dirname, '../../public/icon.png'),
+  icon: join(__dirname, '../client/icon.png'),
   preloadWindow: true,
 });
 

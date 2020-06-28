@@ -4,6 +4,10 @@
     <title>DMX Powerpoint</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="base-uri 'self'; object-src 'none'; default-src 'self' 'unsafe-inline'; font-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"
+    />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -18,5 +22,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // must run before webpack. CRA will inject the webpacked script tags below this one
+      window.__real_os = require('os');
+      window.__real_sacn = require('sacn');
+      window.__real_slideshow = require('slideshow');
+    </script>
   </body>
 </html>
