@@ -36,7 +36,7 @@
     "eslint-plugin-vue": "^6.0.0",
     "node-sass": "^4.11.0",
     "nuxt": "^2.10.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.0",
     "ts-loader": "^6.1.2",
